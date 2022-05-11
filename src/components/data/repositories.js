@@ -1,6 +1,6 @@
 export default [
   {
-    id: 1,
+    id: 3040,
     Nombre: "Cargador Samsung",
     estado: "Espera",
     sector: "Metronorte",
@@ -11,7 +11,7 @@ export default [
   },
 
   {
-    id: 2,
+    id: 2454,
     Nombre: "Cargador Huawei",
     estado: "Espera",
     sector: "Central",
@@ -22,7 +22,7 @@ export default [
   },
 
   {
-    id: 3,
+    id: 32323,
     Nombre: "Cargador iphone",
     estado: "Espera",
     sector: "MetroSur",
@@ -33,7 +33,7 @@ export default [
   },
 
   {
-    id: 4,
+    id: 4456,
     Nombre: "Cargador Tabled",
     estado: "Espera",
     sector: "MetroSur",
@@ -44,7 +44,7 @@ export default [
   },
 
   {
-    id: 5,
+    id: 5050,
     Nombre: "Audifonos Ipad",
     estado: "Espera",
     sector: "MetroSur",
@@ -55,7 +55,7 @@ export default [
   },
 
   {
-    id: 6,
+    id: 6050,
     Nombre: "Cargador inalambrico",
     estado: "Espera",
     sector: "MetroSur",
@@ -66,8 +66,8 @@ export default [
   },
 
   {
-    id: 7,
-    Nombre: "Bateria Recargable Phoner 3 cargas",
+    id: 7567,
+    Nombre: "Bateria Recargable Phoner 3 cargas probando un texto demasiado largo para ver como queda en pantalla",
     estado: "Espera",
     sector: "MetroSur",
     categoria: "Informatica",
@@ -77,7 +77,7 @@ export default [
   },
 
   {
-    id: 8,
+    id: 888,
     Nombre: "Bateria Recargable Sony 3 cargas",
     estado: "Espera",
     sector: "MetroSur",
@@ -88,7 +88,7 @@ export default [
   },
 
   {
-    id: 9,
+    id: 9989,
     Nombre: "Pantalla Samsun A21S",
     estado: "Espera",
     sector: "MetroSur",
@@ -99,7 +99,7 @@ export default [
   },
 
   {
-    id: 10,
+    id: 1034,
     Nombre: "Lapton HP",
     estado: "Espera",
     sector: "MetroSur",
@@ -111,10 +111,10 @@ export default [
 
   {
     id: 11,
-    Nombre: "Lapton HP",
+    Nombre: "Lapton Dell",
     estado: "Pendiente",
-    sector: "MetroSur",
-    categoria: "Informatica",
+    sector: "Central",
+    categoria: "It",
     sede: "MetroSur",
     area: "Ingreso 11",
   },
