@@ -6,15 +6,39 @@ import IniSession from "./src/screens/Login.js";
 import Main from "./src/components/Main.jsx";
 import DetalleActivo from "./src/screens/DetalleActivo.js";
 import CambiarEstado from "./src/screens/CambiarEstado.js";
+import AddFirma from "./src/screens/FirmaDetalle.js";
+
 const Stack = createStackNavigator()
 
 function VariasScreens() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="ActivosRegistrados" component={Main} options={{ title:"Activos Registrados"}}/>
-      <Stack.Screen name="CambiarEstado" component={CambiarEstado} options={{title: "Cambio de Estado Activo"}}/>
-      <Stack.Screen name="Login" component={IniSession} options={{ title: "Login PPM Plani-Go"}} />
-      <Stack.Screen name="DetalleActivo" component={DetalleActivo} options={{title: "Detalle Activo"}}/>
+      <Stack.Screen
+        name="FirmaDetalle"
+        component={AddFirma}
+        options={{ title: "Agregar Firma" }}
+      />
+      <Stack.Screen
+        name="Login"
+        component={IniSession}
+        options={{ title: "Login PPM Plani-Go" }}
+      />
+      <Stack.Screen
+        name="ActivosRegistrados"
+        component={Main}
+        options={{ title: "Activos Registrados" }}
+      />
+      <Stack.Screen
+        name="CambiarEstado"
+        component={CambiarEstado}
+        options={{ title: "Cambio de Estado Activo" }}
+      />
+
+      <Stack.Screen
+        name="DetalleActivo"
+        component={DetalleActivo}
+        options={{ title: "Detalle Activo" }}
+      />
     </Stack.Navigator>
   );
 }
