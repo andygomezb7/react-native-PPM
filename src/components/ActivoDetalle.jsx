@@ -2,8 +2,12 @@ import react from "react";
 import { Text, View } from "react-native";
 
 
-const TextInANest = () => {
-    console.log('entre al repositorio nuevo');
+const DetalleActivoSelect = () => {
+    return (
+        <View>
+            <Text>estoy dentro del detalle del activo</Text>
+        </View>
+    )
   };
 
-  export default TextInANest
+  export default DetalleActivoSelect

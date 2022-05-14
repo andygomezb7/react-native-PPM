@@ -1,19 +1,28 @@
 import react from "react"
-import { Alert, View, StyleSheet, TouchableOpacity  } from "react-native"
+import { Alert, View, StyleSheet, TouchableOpacity,ScrollView  } from "react-native"
 import StyledText from "./StyledText.jsx"
-import ActivoStatus from "../components/ActivosStatus.jsx"
+import ActivoStatus from "./ActivosStatus.jsx"
 import theme from "../theme.js"
+import ScreenDetalle from "../components/Main.jsx"
 
-
-const ActivosItem = (props) => (
-<View key={props.id} style={Styles.container}>
-        <StyledText style={Styles.colortitle} fontSize='subheading' fontWeight='bold'>{props.id}</StyledText>
-        <TouchableOpacity onPress={() => Alert.alert('touchableopacity')}>
-            <ActivoStatus {... props}/>
+const ActivosItem = (repo) => {
+   
+    const EnvioDetalle = () => {
+    //   props.navigation.navigate('DetalleActivo');
+      console.log('estoy danndo clic');
+    };
+    
+    return (
+    <View key={repo.id} style={Styles.container}>
+    <StyledText style={Styles.colortitle} fontSize='subheading' fontWeight='bold'>{repo.id}</StyledText>
+        <TouchableOpacity 
+            onPress={() => EnvioDetalle()}
+        >
+            <ActivoStatus {... repo}/>
         </TouchableOpacity>
-        
-</View>
-)
+    </View>
+    );
+}
 
 const Styles = StyleSheet.create({
     container: {
