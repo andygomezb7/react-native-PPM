@@ -14,11 +14,6 @@ function VariasScreens() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="FirmaDetalle"
-        component={AddFirma}
-        options={{ title: "Agregar Firma" }}
-      />
-      <Stack.Screen
         name="Login"
         component={IniSession}
         options={{ title: "Login PPM Plani-Go" }}
@@ -33,11 +28,15 @@ function VariasScreens() {
         component={CambiarEstado}
         options={{ title: "Cambio de Estado Activo" }}
       />
-
       <Stack.Screen
         name="DetalleActivo"
         component={DetalleActivo}
         options={{ title: "Detalle Activo" }}
+      />
+      <Stack.Screen
+        name="FirmaDetalle"
+        component={AddFirma}
+        options={{ title: "Agregar Firma" }}
       />
     </Stack.Navigator>
   );
