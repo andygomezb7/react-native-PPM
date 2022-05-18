@@ -187,17 +187,25 @@ const DetalleActivo = (props) => {
 
           <View>
             <ButtonGroup
-              buttons={["Cambiar estado", "Firma"]}
+              buttons={["Cambiar estado", "Firma", "Scan QR"]}
               selectedIndex={selectedIndex}
               style={"red"}
               onPress={(value) => {
                 setSelectedIndex(value);
-                if (value != 1) {
-                  // aqui tienes que conectar para mostrar los estado y solo elijan cual y actualize
+                
+                if (value == 0) {
                   console.log("cambiando estado");
-                } else {
-                  console.log("agregar firma");
+                } 
+  
+                if (value == 1) {
+                  console.log("agregar firma")
+                }  
+                
+                if (value == 2) {
+                  // console.log("estoy por activar el QR");
+                 props.navigation.navigate('QR')
                 }
+                
               }}
             />
           </View>

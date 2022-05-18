@@ -7,6 +7,7 @@ import Main from "./src/components/Main.jsx";
 import DetalleActivo from "./src/screens/DetalleActivo.js";
 import CambiarEstado from "./src/screens/CambiarEstado.js";
 import AddFirma from "./src/screens/FirmaDetalle.js";
+import LectorQR from "./src/screens/QR.js";
 
 const Stack = createStackNavigator()
 
@@ -22,6 +23,11 @@ function VariasScreens() {
         name="ActivosRegistrados"
         component={Main}
         options={{ title: "Activos Registrados" }}
+      />
+      <Stack.Screen
+        name="QR"
+        component={LectorQR}
+        options={{ title: "Lector de QR" }}
       />
       <Stack.Screen
         name="CambiarEstado"
