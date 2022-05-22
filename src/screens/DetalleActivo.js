@@ -169,6 +169,14 @@ const DetalleActivo = (props) => {
               <StyledText align="center">
                 {props.route.params.repo.fecha_registrada}
               </StyledText>
+
+              <StyledText align="center" fontWeight="bold">
+                Hora Salida
+              </StyledText>
+              <StyledText align="center">
+                {props.route.params.repo.hora_salida}
+              </StyledText>
+
             </View>
 
             <View style={{ flex: 1 }}>
@@ -199,6 +207,13 @@ const DetalleActivo = (props) => {
               <StyledText align="center">
                 {props.route.params.repo.observacion}
               </StyledText>
+
+              <StyledText align="center" fontWeight="bold">
+                Hora Entrada
+              </StyledText>
+              <StyledText align="center">
+                {props.route.params.repo.hora_entrada}
+              </StyledText>
             </View>
           </View>
 
@@ -209,20 +224,19 @@ const DetalleActivo = (props) => {
               style={"red"}
               onPress={(value) => {
                 setSelectedIndex(value);
-                
+
                 if (value == 0) {
                   console.log("cambiando estado");
-                } 
-  
+                }
+
                 if (value == 1) {
-                  console.log("agregar firma")
-                }  
-                
+                  console.log("agregar firma");
+                }
+
                 if (value == 2) {
                   // console.log("estoy por activar el QR");
-                 props.navigation.navigate('QR')
+                  props.navigation.navigate("QR");
                 }
-                
               }}
             />
           </View>

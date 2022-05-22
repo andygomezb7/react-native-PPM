@@ -24,12 +24,13 @@ export default function App() {
     setText(data);
     // aqui te muestra el alert con la data scaneado
     alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+    
     };
 
 
   if (hasPermission === null) {
     return (
-      <View style={styles.container}>
+      <View style={styles.container2}>
         <Text>Requerido el permiso de la camara</Text>
       </View>
     );
@@ -37,7 +38,7 @@ export default function App() {
 
    if (hasPermission === false) {
      return (
-       <View style={styles.container}>
+       <View style={styles.container2}>
          <Text style={{ margin: 10 }}> No se dio acceso a la camara</Text>
          <Button
            title={"Allow Camera"}
@@ -49,7 +50,7 @@ export default function App() {
 
 
     return (
-      <View style={styles.container}>
+      <View style={styles.container2}>
         <View style={styles.barcodebox}>
           <BarCodeScanner
             onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
@@ -71,7 +72,7 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  container2: {
     flex: 1,
     flexDirection: "column",
     justifyContent: "center",

@@ -43,7 +43,7 @@ const IniSession = (props) => {
     return (
       <ScrollView style={styles.container}>
         <View style={styles.inputGroup}>
-          <TextInput
+          <TextInput 
             placeholder="Usuario"
             onChangeText={(value) => handleChangeText("usuario", value)}
           />
