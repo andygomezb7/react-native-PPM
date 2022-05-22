@@ -50,9 +50,6 @@ const MainPrincipal = (props) => {
       <View style={Styles.inputGroup1}>
         <Button
           title="Leer Codigo"
-          // onPress={() =>
-          //   
-          // }
           onPress={() => ValidLogin()}
         />
       </View>

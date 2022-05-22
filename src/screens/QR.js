@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Text, View, StyleSheet, Button } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
 
-export default function App() {
+export default function App(props) {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
   const [text, setText] = useState('Aun no a escaneado ningun QR');
@@ -23,8 +23,16 @@ export default function App() {
     // aqui tienes la data scaneada solo tienes que conectar a  la base de datos para que te abara el codigo de activo que scanees..!
     setText(data);
     // aqui te muestra el alert con la data scaneado
-    alert(`Bar code with type ${type} and data ${data} has been scanned!`);
-    
+    // alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+
+      if(data != null){
+        codigo = data;
+        props.navigation.navigate("ControlActivo", { codigo });
+        alert(`ya tengo scaneada data`);
+      }else{
+        alert(`No esta scaneado ningun codigo QR revisar`);
+      }
+
     };
 
 
