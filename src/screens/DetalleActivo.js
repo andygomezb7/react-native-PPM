@@ -1,4 +1,4 @@
-import react, { useState } from "react";
+import react, { useState, useEffect } from "react";
 import {
   View,
   TextInput,
@@ -13,6 +13,7 @@ import { ButtonGroup } from "react-native-elements";
 import StyledText from "../components/StyledText";
 import theme from "../theme";
 import * as ImagePicker from "expo-image-picker";
+import axios from 'axios';
 
 
 const DetalleActivo = (props) => {
@@ -31,6 +32,22 @@ const DetalleActivo = (props) => {
 
     // seleccionar la imagen final
     const [selectImageF, setselectImageF] = useState(null);
+
+    react.useEffect(() => {
+      axios.get('http://localhost/planigo/ROOT/API/API_ppm.php',{
+        params: {
+          "request": "getimagenes",
+          "codigo": "6"
+        }
+      }).then(function (response) {
+        console.log(response.data.imagens[0].foto_antes);
+        setselectImage({localUri: response.data.imagens[0].foto_antes})
+        setselectImageF({localFUri: response.data.imagens[0].foto_despues})
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+    },[])
 
     // Funcion para dar permisos a acceder al dispotivo Galeria.  Foto Inicial
     let openImagePickerAsync = async () => {

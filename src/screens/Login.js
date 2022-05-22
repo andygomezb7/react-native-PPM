@@ -1,5 +1,6 @@
 import react, {useState} from "react";
 import { View, TextInput, Button, ScrollView, StyleSheet } from "react-native";
+import  axios  from "axios";
 
 const IniSession = (props) => {
 
@@ -20,9 +21,22 @@ const IniSession = (props) => {
           alert("Ingrese una Contraseña");
         } else{
           console.log(state);
-          // aqui tienes que hacer la importacion y hacer la conecxion para verificar los usuarios si ya existen para logiarse.
-          // para esto seria bueno que conviertas esta funcion en Async await
-          props.navigation.navigate('ActivosRegistrados');
+          axios.get('http://localhost/planigo/ROOT/API/API_login.php',{
+            params: {
+              "request": "login",
+              "usu": state.usuario,
+              "pass": state.password
+            }
+          }).then(function (response) {
+            if (response.data.status === true) {
+              props.navigation.navigate('ActivosRegistrados');
+            }else{
+              alert(response.data.message)
+            }
+          })
+          .catch(function (error) {
+            console.log(error);
+          })
         } 
     }
 
