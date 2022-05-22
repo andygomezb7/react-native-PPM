@@ -8,7 +8,10 @@ export default [
     sede: "MetroNorte",
     area: "Ingreso 1",
     fecha_registrada: '04-05-2022',
-    observacion: "prueba"
+    observacion: "prueba",
+    hora_entrada: "17:00",
+    hora_salida:  "6:00",
+    horas_mantenimiento: "200"  
   },
 
   {
@@ -20,7 +23,10 @@ export default [
     sede: "Central",
     area: "Ingreso 2",
     fecha_registrada: '04-05-2022',
-    observacion: "prueba"
+    observacion: "prueba",
+    hora_entrada: "17:00",
+    hora_salida:  "6:00",
+    horas_mantenimiento: "200"  
   },
 
   {
@@ -32,7 +38,10 @@ export default [
     sede: "MetroSur",
     area: "Ingreso 3",
     fecha_registrada: '04-05-2022',
-    observacion: "prueba"
+    observacion: "prueba",
+    hora_entrada: "17:00",
+    hora_salida:  "6:00",
+    horas_mantenimiento: "200"  
   },
 
   {
@@ -44,7 +53,10 @@ export default [
     sede: "MetroSur",
     area: "Ingreso 4",
     fecha_registrada: '04-05-2022',
-    observacion: "prueba"
+    observacion: "prueba",
+    hora_entrada: "17:00",
+    hora_salida:  "6:00",
+    horas_mantenimiento: "200"  
   },
 
   {
@@ -56,7 +68,10 @@ export default [
     sede: "MetroSur",
     area: "Ingreso 5",
     fecha_registrada: '04-05-2022',
-    observacion: "prueba"
+    observacion: "prueba",
+    hora_entrada: "17:00",
+    hora_salida:  "6:00",
+    horas_mantenimiento: "200"  
   },
 
   {
@@ -68,7 +83,10 @@ export default [
     sede: "MetroSur",
     area: "Ingreso 6",
     fecha_registrada: '04-05-2022',
-    observacion: "prueba"
+    observacion: "prueba",
+    hora_entrada: "17:00",
+    hora_salida:  "6:00",
+    horas_mantenimiento: "200"  
   },
 
   {
@@ -80,7 +98,10 @@ export default [
     sede: "MetroSur",
     area: "Ingreso 7",
     fecha_registrada: '04-05-2022',
-    observacion: "prueba"
+    observacion: "prueba",
+    hora_entrada: "17:00",
+    hora_salida:  "6:00",
+    horas_mantenimiento: "200"  
   },
 
   {
@@ -92,7 +113,10 @@ export default [
     sede: "MetroSur",
     area: "Ingreso 8",
     fecha_registrada: '04-05-2022',
-    observacion: "prueba"
+    observacion: "prueba",
+    hora_entrada: "17:00",
+    hora_salida:  "6:00",
+    horas_mantenimiento: "200"  
   },
 
   {
@@ -104,7 +128,10 @@ export default [
     sede: "MetroSur",
     area: "Ingreso 9",
     fecha_registrada: '04-05-2022',
-    observacion: "prueba"
+    observacion: "prueba",
+    hora_entrada: "17:00",
+    hora_salida:  "6:00",
+    horas_mantenimiento: "200"  
   },
 
   {
@@ -116,7 +143,10 @@ export default [
     sede: "MetroSur",
     area: "Ingreso 10",
     fecha_registrada: '04-05-2022',
-    observacion: "prueba"
+    observacion: "prueba",
+    hora_entrada: "17:00",
+    hora_salida:  "6:00",
+    horas_mantenimiento: "200"  
   },
 
   {

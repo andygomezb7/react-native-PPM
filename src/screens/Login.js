@@ -22,14 +22,14 @@ const IniSession = (props) => {
           console.log(state);
           // aqui tienes que hacer la importacion y hacer la conecxion para verificar los usuarios si ya existen para logiarse.
           // para esto seria bueno que conviertas esta funcion en Async await
-          props.navigation.navigate('ActivosRegistrados');
+          props.navigation.navigate("ScreenPrincipal");
         } 
     }
 
     return (
       <ScrollView style={styles.container}>
         <View style={styles.inputGroup}>
-          <TextInput
+          <TextInput 
             placeholder="Usuario"
             onChangeText={(value) => handleChangeText("usuario", value)}
           />

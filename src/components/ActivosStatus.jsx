@@ -14,9 +14,13 @@ const ActivoStatus = repo => {
                 <StyledText align='center' fontWeight='bold' >Estado</StyledText>
                 <StyledText align='center' >{repo.estado}</StyledText>
             </View>
-            <View style={{flex:0}}>
-                <StyledText align='center' fontWeight='bold' >Fecha</StyledText>
-                <StyledText align='center' >{repo.fecha_registrada}</StyledText>
+            <View style={{flex:1}}>
+                <StyledText align='center' fontWeight='bold' >Hora Entrada</StyledText>
+                <StyledText align='center' >{repo.hora_entrada}</StyledText>
+            </View>
+             <View style={{flex:1}}>
+                <StyledText align='center' fontWeight='bold' >Hora Salida</StyledText>
+                <StyledText align='center' >{repo.hora_salida}</StyledText>
             </View>
         </View>
     )

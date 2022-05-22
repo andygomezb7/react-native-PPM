@@ -8,6 +8,8 @@ import DetalleActivo from "./src/screens/DetalleActivo.js";
 import CambiarEstado from "./src/screens/CambiarEstado.js";
 import AddFirma from "./src/screens/FirmaDetalle.js";
 import LectorQR from "./src/screens/QR.js";
+import MainPrincipal from "./src/screens/ScreenIni.js";
+import Control from "./src/screens/ControlMaquinaria.js";
 
 const Stack = createStackNavigator()
 
@@ -18,6 +20,16 @@ function VariasScreens() {
         name="Login"
         component={IniSession}
         options={{ title: "Login PPM Plani-Go" }}
+      />
+      <Stack.Screen
+        name="ScreenPrincipal"
+        component={MainPrincipal}
+        options={{ title: "Pantalla Inicio" }}
+      />
+      <Stack.Screen
+        name="ControlActivo"
+        component={Control}
+        options={{ title: "Control Maquinaria" }}
       />
       <Stack.Screen
         name="ActivosRegistrados"
