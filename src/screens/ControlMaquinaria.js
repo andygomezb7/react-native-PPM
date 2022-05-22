@@ -37,6 +37,7 @@ const Control = (props) => {
     }
   };
 
+  /// aqui estan todos los campos para recivir los datos.
   const [state, setstate] = useState({
     id_maq_activo: "",
     id_maq_registro: "",
@@ -52,6 +53,15 @@ const Control = (props) => {
   const handleChangeText = (id_maq_activo, value) => {
     setstate({ ...state, [id_maq_activo]: value });
   };
+
+  const envioData = () => {
+    ////////////////// aqui vienen todos los datos que ya envia recogidos del formulario /////////////////////  
+    console.log(state);
+
+    // regreso a la pantalla principal despues de guardar los datos..!
+    props.navigation.navigate("ScreenPrincipal");
+
+  }
 
   return (
     <ScrollView style={styles.container2}>
@@ -112,7 +122,7 @@ const Control = (props) => {
         </SafeAreaView>
       </View>
       <View style={styles.Button}>
-        <Button title="Grabar Registro" onPress={() => console.log(state)} />
+        <Button title="Grabar Registro" onPress={() => envioData()} />
       </View>
     </ScrollView>
   );
