@@ -14,6 +14,7 @@ const IniSession = (props) => {
     }
 
     const ValidLogin = () => {
+      // Comentas aqui sin el navigate para poder entrar
         if (state.usuario === '' ){
             alert('Ingrese un Usuario')
         } 
@@ -21,7 +22,7 @@ const IniSession = (props) => {
           alert("Ingrese una Contraseña");
         } else{
           console.log(state);
-          axios.get('http://localhost/planigo/ROOT/API/API_login.php',{
+          axios.get('https://edico.planigo.app/ROOT/API/API_login.php',{
             params: {
               "request": "login",
               "usu": state.usuario,
@@ -29,7 +30,7 @@ const IniSession = (props) => {
             }
           }).then(function (response) {
             if (response.data.status === true) {
-              props.navigation.navigate('ActivosRegistrados');
+              props.navigation.navigate("ScreenPrincipal");
             }else{
               alert(response.data.message)
             }
@@ -38,6 +39,7 @@ const IniSession = (props) => {
             console.log(error);
           })
         } 
+        ////////////////////
     }
 
     return (

@@ -10,6 +10,7 @@ import AddFirma from "./src/screens/FirmaDetalle.js";
 import LectorQR from "./src/screens/QR.js";
 import MainPrincipal from "./src/screens/ScreenIni.js";
 import Control from "./src/screens/ControlMaquinaria.js";
+import ListaActivos from "./src/screens/ListaActivos.js";
 
 const Stack = createStackNavigator()
 
@@ -35,6 +36,11 @@ function VariasScreens() {
         name="ActivosRegistrados"
         component={Main}
         options={{ title: "Activos Registrados" }}
+      />
+      <Stack.Screen
+        name="ListaActivos"
+        component={ListaActivos}
+        options={{ title: "Lista de Activos" }}
       />
       <Stack.Screen
         name="QR"

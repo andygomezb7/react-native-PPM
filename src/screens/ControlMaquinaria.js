@@ -12,10 +12,27 @@ TouchableOpacity
 } from "react-native";
 import { ModalPicker } from "./ModalPicker";
 import {useFormik} from "formik";
+import axios from 'axios';
 
 const Control = (props) => {
+
+  const [selectActivo, setselectActivo] = useState(null);
   
     // aqui traigo el id que filtro el usuario y el que se lee... //////
+  react.useEffect(() => {
+    axios.get('https://edico.planigo.app/ROOT/API/API_ppm.php',{
+    params: {
+        "request": "activo",
+        "codigo": props.route.params.codigo.codigo
+    }
+    }).then(({ data }) => {
+      // aqui esta la data en objetos y array para que la uses
+        console.log("defaultApp -> data", data.activo)
+      })
+    .catch(function (error) {
+        console.log(error);
+    })
+  },[])  
   console.log("probando" + " " + props.route.params.codigo.codigo);
 
   const [chooseData, setchooseData] = useState("Estado");
@@ -31,9 +48,9 @@ const Control = (props) => {
     
     /// capturo el dato si es Salida es condicion 0 y si es Entrada condicion 1 ...!!!!!
     if(option === 'Salida') {
-        handleChangeText("maq_condicion", 0);
-    }else{
         handleChangeText("maq_condicion", 1);
+    }else{
+        handleChangeText("maq_condicion", 2);
     }
   };
 
@@ -57,6 +74,24 @@ const Control = (props) => {
   const envioData = () => {
     ////////////////// aqui vienen todos los datos que ya envia recogidos del formulario /////////////////////  
     console.log(state);
+
+    axios.get('https://edico.planigo.app/planigo/ROOT/API/API_ppm.php',{
+      params: {
+        "request": "registrar",
+        "status": state.maq_condicion,
+        "activo": props.route.params.codigo.codigo 
+      }
+    }).then(function (response) {
+      if (response.data.status === true) {
+        console.log(response.data)
+        alert("Registro se actualizo correctamente")
+      }else{
+        alert(response.data.message)
+      }
+    }).catch(function (error) {
+      console.log(error);
+    })
+      
 
     // regreso a la pantalla principal despues de guardar los datos..!
     props.navigation.navigate("ScreenPrincipal");

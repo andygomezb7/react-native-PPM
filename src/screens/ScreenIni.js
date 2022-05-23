@@ -57,7 +57,7 @@ const MainPrincipal = (props) => {
       <View>
         <Button
           title="Bodega Activos"
-          onPress={() => props.navigation.navigate("ActivosRegistrados")}
+          onPress={() => props.navigation.navigate("ListaActivos")}
         />
       </View>
     </View>
