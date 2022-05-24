@@ -30,7 +30,7 @@ const activoFinal = (props) => {
     axios.get('https://edico.planigo.app/ROOT/API/API_ppm.php',{
     params: {
         "request": "activo",
-        "codigo": props.route.params.codigo.codigo
+        "codigo": props.route.params.codigo
     }
     }).then(({ data }) => {
       // aqui esta la data en objetos y array para que la uses
@@ -41,7 +41,7 @@ const activoFinal = (props) => {
         console.log(error);
     })
   },[])  
-  console.log("probando" + " " + props.route.params.codigo.codigo);
+  console.log("probando" + " " + props.route.params.codigo);
 
   var date = moment()
   .format('YYYY-MM-DD HH:mm:ss');
@@ -53,7 +53,7 @@ const activoFinal = (props) => {
       params: {
         "request": "registrar",
         "status": 2,
-        "activo": props.route.params.codigo.codigo,
+        "activo": props.route.params.codigo,
         "fecha": x.fecha,
         "destino": "",
         "entregado": x.entregado,

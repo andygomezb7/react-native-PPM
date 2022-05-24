@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Text, View, StyleSheet, Button } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
+import axios from 'axios'
 
 export default function App(props) {
   const [hasPermission, setHasPermission] = useState(null);
@@ -27,7 +28,24 @@ export default function App(props) {
 
       if(data != null){
         codigo = data;
-        props.navigation.navigate("ControlActivo", { codigo });
+        console.log("nose "+codigo)
+        axios.get('https://edico.planigo.app/ROOT/API/API_ppm.php',{
+        params: {
+            "request": "activo",
+            "codigo": codigo
+        }
+        }).then(({ data }) => {
+            if (data.activo[0].act_situacion == "1") {
+              props.navigation.navigate("activoInicial", {codigo});
+            }else{
+              props.navigation.navigate("activoFinal", {codigo});
+            }
+          })
+        .catch(function (error) {
+            console.log(error);
+        })
+      console.log(codigo)
+        // props.navigation.navigate("activoInicial", { codigo });
         alert(`ya tengo scaneada data`);
       }else{
         alert(`No esta scaneado ningun codigo QR revisar`);

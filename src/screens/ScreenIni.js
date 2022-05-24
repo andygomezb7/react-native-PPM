@@ -29,9 +29,9 @@ const MainPrincipal = (props) => {
         }
         }).then(({ data }) => {
             if (data.activo[0].act_situacion == "1") {
-              props.navigation.navigate("activoInicial", {codigo});
+              props.navigation.navigate("activoInicial", {codigo:codigo.codigo});
             }else{
-              props.navigation.navigate("activoFinal", {codigo});
+              props.navigation.navigate("activoFinal", {codigo:codigo.codigo});
             }
           })
         .catch(function (error) {
