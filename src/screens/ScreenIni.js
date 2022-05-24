@@ -2,12 +2,12 @@ import react, { useState } from "react";
 import { Text, View, Button, StyleSheet, TextInput, Alert, Image } from "react-native";
 import theme from "../theme.js";
 import prueba from "../../assets/prueba.jpeg";
-import repositories from "../components/data/repositories.js";
+import axios from "axios"
 
 const MainPrincipal = (props) => {
   
   const [codigo, setcodigo] = useState({
-    codigo: ""
+    codigo: " "
   });
 
   const handleChangeText = (codigo, value) => {
@@ -22,7 +22,22 @@ const MainPrincipal = (props) => {
     if (codigo.codigo === "") {
       alert("Favor Ingrese un Codigo de Activo");
     } else {
-       props.navigation.navigate("ControlActivo", {codigo});
+      axios.get('https://edico.planigo.app/ROOT/API/API_ppm.php',{
+        params: {
+            "request": "activo",
+            "codigo": codigo.codigo
+        }
+        }).then(({ data }) => {
+            if (data.activo[0].act_situacion == "1") {
+              props.navigation.navigate("activoInicial", {codigo});
+            }else{
+              props.navigation.navigate("activoFinal", {codigo});
+            }
+          })
+        .catch(function (error) {
+            console.log(error);
+        })
+      console.log(codigo.codigo)
     }
   };
 

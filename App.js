@@ -9,7 +9,9 @@ import CambiarEstado from "./src/screens/CambiarEstado.js";
 import AddFirma from "./src/screens/FirmaDetalle.js";
 import LectorQR from "./src/screens/QR.js";
 import MainPrincipal from "./src/screens/ScreenIni.js";
-import Control from "./src/screens/ControlMaquinaria.js";
+import Control from "./src/screens/activo.js";
+import activoInicial from "./src/screens/activoinicial.js";
+import activoFinal from "./src/screens/activofinal.js";
 import ListaActivos from "./src/screens/ListaActivos.js";
 
 const Stack = createStackNavigator()
@@ -28,9 +30,14 @@ function VariasScreens() {
         options={{ title: "Pantalla Inicio" }}
       />
       <Stack.Screen
-        name="ControlActivo"
-        component={Control}
-        options={{ title: "Control Maquinaria" }}
+        name="activoInicial"
+        component={activoInicial}
+        options={{ title: "Activo Inicial" }}
+      />
+      <Stack.Screen
+        name="activoFinal"
+        component={activoFinal}
+        options={{ title: "Activo Final" }}
       />
       <Stack.Screen
         name="ActivosRegistrados"
