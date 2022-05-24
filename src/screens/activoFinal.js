@@ -14,16 +14,8 @@ import moment from "moment";
 const activoFinal = (props) => {
 
   const [act, setActivo] = useState({
-    fecha: "",
-    destino: "",
-    entregado: "",
-    recibido: "",
-    observacion: ""
+    destino: ""
   })
-
-  const handleChangeText = ( fecha, value) => {
-    setActivo({...act, [fecha]: value })
-  }
 
     // aqui traigo el id que filtro el usuario y el que se lee... //////
   react.useEffect(() => {
@@ -78,83 +70,112 @@ const activoFinal = (props) => {
 
   }
 
+///// funciones para actualizar manual los datoss //////
+//// aqui ya te actualize los valor Willian ya solo encargate de mandar los datos a la apiiii ///////
+  const [entregado, setentregado] = useState(null)
+  const inputUpdateEntregado = (value) => {
+    setentregado(value);
+  };
+
+  const [recibido, setrecibido] = useState(null);
+  const inputUpdaterecibido = (value) => {
+    setrecibido(value);
+  };
+
+  const [observacionFinal, setobservacionFinal] = useState(null);
+  const inputUpdateObservacion = (value) => {
+    setobservacionFinal(value);
+  };
+
+  const [fechaServidor, setfechaServidor] = useState(date);
+  const inputUpdateFechaServidor = (value) => {
+    setfechaServidor(value);
+  };
+
+  console.log("entregado" + " " + entregado + "recibido" + " " + recibido + "observacion" + " " + observacionFinal + "fecha servidor" + " " + fechaServidor);
+
   return (
     <FlatList data={act} 
               keyExtractor={( item , index) => {
                 return  index.toString();
               }}
               renderItem={({item}) => {
-        return(              
+        return (
           <ScrollView style={styles.container2}>
-          <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
-            <View style={{ flex: 1 }}>
-              <Text style={{ color: "#FF0000", fontSize: 25, fontWeight: "bold" }}>Activo En Uso</Text>
-            </View>
-            <View style={{ flex: 1}}>
-              <View style={styles.inputGroup3}>
-                <Text style={styles.color}>Código: {item.act_codigo}</Text>
-                <Text style={styles.color}>{item.act_nombre}</Text>
-                <Text style={styles.color}>{item.act_modelo}</Text>
+            <View
+              style={{ flexDirection: "row", justifyContent: "space-around" }}
+            >
+              <View style={{ flex: 1 }}>
+                <Text
+                  style={{ color: "#FF0000", fontSize: 25, fontWeight: "bold" }}
+                >
+                  Activo En Uso
+                </Text>
+              </View>
+              <View style={{ flex: 1 }}>
+                <View style={styles.inputGroup3}>
+                  <Text style={styles.color}>Código: {item.act_codigo}</Text>
+                  <Text style={styles.color}>{item.act_nombre}</Text>
+                  <Text style={styles.color}>{item.act_modelo}</Text>
+                </View>
               </View>
             </View>
-          </View>
-          <View style={styles.inputGroup2}>
-            <Text style={styles.color}>Fecha Registro</Text>
-          </View>
-          <View style={styles.inputGroup}>
-            <TextInput editable={false} placeholder={date} 
-             onChangeText={(value) => handleChangeText("fecha", value)} />
-          </View>
-          <View style={styles.inputGroup2}>
-            <Text style={styles.color}>Horas Para Mantenimiento</Text>
-          </View>
-          <View style={styles.inputGroup}>
-            <TextInput
-              placeholder={item.act_horas_limite}
-              editable={false}
-            />
-          </View>
-          <View style={styles.inputGroup2}>
-            <Text style={styles.color}>Horas Acumuladas Uso</Text>
-          </View>
-          <View style={styles.inputGroup}>
-            <TextInput
-              placeholder={item.act_horas_usadas}
-              editable={false}
-            />
-          </View>
-          <View style={styles.inputGroup2}>
-            <Text style={styles.color}>Entregado Por</Text>
-          </View>
-          <View style={styles.inputGroup}>
-            <TextInput
-              placeholder="Entregado Por"
-              onChangeText={(value) => handleChangeText("entregado", value)}
-            />
-          </View>
-          <View style={styles.inputGroup2}>
-            <Text style={styles.color}>Recivido Por</Text>
-          </View>
-          <View style={styles.inputGroup}>
-            <TextInput
-              placeholder="Recivido Por"
-              onChangeText={(value) => handleChangeText("recibido", value)}
-            />
-          </View>
-          <View style={styles.inputGroup2}>
-            <Text style={styles.color}>Observacion Activo</Text>
-          </View>
-          <View style={styles.inputGroup}>
-            <TextInput
-              placeholder="observacion Activo"
-              onChangeText={(value) => handleChangeText("observacion", value)}
-            />
-          </View>
-          <View style={styles.Button}>
-            <Button title="Grabar Registro" onPress={() => envioData()} />
-          </View>
-        </ScrollView>
-         )
+            <View style={styles.inputGroup2}>
+              <Text style={styles.color}>Fecha Registro</Text>
+            </View>
+            <View style={styles.inputGroup}>
+              <TextInput
+                editable={false}
+                placeholder={date}
+                onChangeText={(value = date) => inputUpdateFechaServidor(value)}
+              />
+            </View>
+            <View style={styles.inputGroup2}>
+              <Text style={styles.color}>Horas Para Mantenimiento</Text>
+            </View>
+            <View style={styles.inputGroup}>
+              <TextInput placeholder={item.act_horas_limite} editable={false} />
+            </View>
+            <View style={styles.inputGroup2}>
+              <Text style={styles.color}>Horas Acumuladas Uso</Text>
+            </View>
+            <View style={styles.inputGroup}>
+              <TextInput placeholder={item.act_horas_usadas} editable={false} />
+            </View>
+            <View style={styles.inputGroup2}>
+              <Text style={styles.color}>Entregado Por</Text>
+            </View>
+            <View style={styles.inputGroup}>
+              <TextInput
+                placeholder="Entregado Por"
+                onChangeText={(value) => inputUpdateEntregado(value)}
+              />
+            </View>
+            <View style={styles.inputGroup2}>
+              <Text style={styles.color}>Recivido Por</Text>
+            </View>
+            <View style={styles.inputGroup}>
+              <TextInput
+                placeholder="Recivido Por"
+                onChangeText={(value) => inputUpdaterecibido(value)}
+              />
+            </View>
+            <View style={styles.inputGroup2}>
+              <Text style={styles.color}>Observacion Activo</Text>
+            </View>
+            <View style={styles.inputGroup}>
+              <TextInput
+                placeholder="observacion Activo"
+                onChangeText={(value) =>
+                  inputUpdateObservacion(value)
+                }
+              />
+            </View>
+            <View style={styles.Button}>
+              <Button title="Grabar Registro" onPress={() => envioData()} />
+            </View>
+          </ScrollView>
+        );
       }}
     />
   )
