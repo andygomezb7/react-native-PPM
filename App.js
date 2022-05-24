@@ -10,8 +10,8 @@ import AddFirma from "./src/screens/FirmaDetalle.js";
 import LectorQR from "./src/screens/QR.js";
 import MainPrincipal from "./src/screens/ScreenIni.js";
 import Control from "./src/screens/activo.js";
-import activoInicial from "./src/screens/activoinicial.js";
-import activoFinal from "./src/screens/activofinal.js";
+import activoInicial from "./src/screens/activoInicial.js";
+import activoFinal from "./src/screens/activoFinal.js";
 import ListaActivos from "./src/screens/ListaActivos.js";
 
 const Stack = createStackNavigator()
