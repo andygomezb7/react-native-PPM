@@ -21,8 +21,8 @@ const activoFinal = (props) => {
     observacion: ""
   })
 
-  const handleChangeText = ( x, value) => {
-    setActivo({...act, [x]: value })
+  const handleChangeText = ( fecha, value) => {
+    setActivo({...act, [fecha]: value })
   }
 
     // aqui traigo el id que filtro el usuario y el que se lee... //////
@@ -81,9 +81,9 @@ const activoFinal = (props) => {
   return (
     <FlatList data={act} 
               keyExtractor={( item , index) => {
-                index.toString();
+                return  index.toString();
               }}
-              renderItem={({item, index}) => {
+              renderItem={({item}) => {
         return(              
           <ScrollView style={styles.container2}>
           <View style={{ flexDirection: "row", justifyContent: "space-around" }}>

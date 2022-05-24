@@ -102,7 +102,7 @@ const activoInicial = (props) => {
           </View>
           <View style={styles.inputGroup}>
             <TextInput editable={false} placeholder={date} 
-             onEndEditingg={(value) => handleChangeText("fecha", value)} />
+             onChangeText={(value) => handleChangeText("fecha", value)} />
           </View>
           <View style={styles.inputGroup2}>
             <Text style={styles.color}>Destino</Text>
@@ -110,7 +110,7 @@ const activoInicial = (props) => {
           <View style={styles.inputGroup}>
             <TextInput
               placeholder="Destino"
-              onEndEditing={(value) => handleChangeText("destino", value)}
+              onChangeText={(value) => handleChangeText("destino", value)}
             />
           </View>
           <View style={styles.inputGroup2}>
@@ -137,7 +137,7 @@ const activoInicial = (props) => {
           <View style={styles.inputGroup}>
             <TextInput
               placeholder="Entregado Por"
-              onEndEditing={(value) => handleChangeText("entregado", value)}
+              onChangeText={(value) => handleChangeText("entregado", value)}
             />
           </View>
           <View style={styles.inputGroup2}>
@@ -146,7 +146,7 @@ const activoInicial = (props) => {
           <View style={styles.inputGroup}>
             <TextInput
               placeholder="Recivido Por"
-              onEndEditing={(value) => handleChangeText("recibido", value)}
+              onChangeText={(value) => handleChangeText("recibido", value)}
             />
           </View>
           <View style={styles.Button}>
