@@ -46,11 +46,11 @@ const activoFinal = (props) => {
         "request": "registrar",
         "status": 2,
         "activo": props.route.params.codigo,
-        "fecha": x.fecha,
+        "fecha": fechaServidor,
         "destino": "",
-        "entregado": x.entregado,
-        "recibido": x.recibido,
-        "observacion": x.observacion
+        "entregado": entregado,
+        "recibido": recibido,
+        "observacion": observacionFinal
 
       }
     }).then(function (response) {
