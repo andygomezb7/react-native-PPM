@@ -37,9 +37,20 @@ const activoInicial = (props) => {
 
   var date = moment().format("YYYY-MM-DD HH:mm:ss");
 
-  const envioData = () => {
+  const envioData = (fechaServidor, entregado, recibido, ObservacionI) => {
     ////////////////// aqui vienen todos los datos que ya envia recogidos del formulario /////////////////////
-    console.log(act.fecha);
+    console.log(fechaServidor, 'esta es la data recibido', recibido);
+    // valido los datos
+    if(recibido === null){
+      alert('Favor Ingrese quien esta Recibiendo');
+      console.log('ingrese quien entrega');
+      return;
+    }
+    if(entregado === null){
+      alert('Favor Ingrese quien esta Entregando');
+      console.log('ingrese quien entrega');
+      return;
+    }
     axios
       .get("https://edico.planigo.app/ROOT/API/API_ppm.php", {
         params: {
@@ -47,10 +58,10 @@ const activoInicial = (props) => {
           status: 1,
           activo: props.route.params.codigo,
           fecha: fechaServidor,
-          destino: Destino,
+          destino: null,
           entregado: entregado,
           recibido: recibido,
-          observacion: "",
+          observacion: ObservacionI,
         },
       })
       .then(function (response) {
@@ -73,18 +84,18 @@ const activoInicial = (props) => {
   //// aqui ya te actualize los valor Willian ya solo encargate de mandar los datos a la apiiii ///////
   const [entregado, setentregado] = useState(null);
   const inputUpdateEntregado = (value) => {
-    setentregado(value);
+      setentregado(value);
   };
 
   const [recibido, setrecibido] = useState(null);
   const inputUpdaterecibido = (value) => {
-    setrecibido(value);
+      setrecibido(value);
   };
 
-  const [Destino, setDestino] = useState(null);
-  const inputUpdateDestino = (value) => {
-    setDestino(value);
-  }
+  const [ObservacionI, setObservacionI] = useState(null);
+  const inputObservacion = (value) => {
+    setObservacionI(value);
+  };
 
   const [fechaServidor, setfechaServidor] = useState(date);
   const inputUpdateFechaServidor = (value) => {
@@ -98,9 +109,6 @@ const activoInicial = (props) => {
       "recibido" +
       " " +
       recibido +
-      "destino" +
-      " - " +
-      Destino +
       "fecha servidor" +
       " " +
       fechaServidor
@@ -122,7 +130,7 @@ const activoInicial = (props) => {
                 <Text
                   style={{ color: "#008000", fontSize: 25, fontWeight: "bold" }}
                 >
-                  Activo Disponible
+                  Activo Disponible en Bodega
                 </Text>
               </View>
               <View style={{ flex: 1 }}>
@@ -141,15 +149,6 @@ const activoInicial = (props) => {
                 editable={false}
                 placeholder={date}
                 onChangeText={(value = date) => inputUpdateFechaServidor(value)}
-              />
-            </View>
-            <View style={styles.inputGroup2}>
-              <Text style={styles.color}>Destino</Text>
-            </View>
-            <View style={styles.inputGroup}>
-              <TextInput
-                placeholder="Destino"
-                onChangeText={(value) => inputUpdateDestino(value)}
               />
             </View>
             <View style={styles.inputGroup2}>
@@ -174,16 +173,25 @@ const activoInicial = (props) => {
               />
             </View>
             <View style={styles.inputGroup2}>
-              <Text style={styles.color}>Recivido Por</Text>
+              <Text style={styles.color}>Recibido Por</Text>
             </View>
             <View style={styles.inputGroup}>
               <TextInput
-                placeholder="Recivido Por"
+                placeholder="Recibido Por"
                 onChangeText={(value) => inputUpdaterecibido( value)}
               />
             </View>
+            <View style={styles.inputGroup2}>
+              <Text style={styles.color}>Observacion</Text>
+            </View>
+            <View style={styles.inputGroup}>
+              <TextInput
+                placeholder="Observacion"
+                onChangeText={(value) => inputObservacion(value)}
+              />
+            </View>
             <View style={styles.Button}>
-              <Button title="Grabar Registro" onPress={() => envioData()} />
+              <Button title="Grabar Registro" onPress={() => envioData(fechaServidor, entregado, recibido, ObservacionI)} />
             </View>
           </ScrollView>
         );

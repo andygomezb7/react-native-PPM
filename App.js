@@ -44,7 +44,7 @@ function VariasScreens() {
           headerTitleStyle: {
             fontWeight: 'bold',
           },
-          title : "Bienvenidos a PPM",
+          title : "Welcome to PPM",
         })}
       />
       <Stack.Screen

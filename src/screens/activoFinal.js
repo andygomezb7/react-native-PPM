@@ -38,7 +38,16 @@ const activoFinal = (props) => {
   var date = moment()
   .format('YYYY-MM-DD HH:mm:ss');
 
-  const envioData = () => {
+  const envioData = (fechaServidor,entregado, recibido, observacionFinal) => {
+    /// valido los campos que no vengan vacios o detengo el proceso.
+    if(entregado === null){
+      alert("Favor ingrese quien esta entregando");
+      return;
+    }
+    if(recibido === null){
+      alert("Favor ingrese quien esta recibiendo");
+      return;
+    }
     ////////////////// aqui vienen todos los datos que ya envia recogidos del formulario /////////////////////  
      console.log(act)
     axios.get('https://edico.planigo.app/ROOT/API/API_ppm.php',{
@@ -172,7 +181,7 @@ const activoFinal = (props) => {
               />
             </View>
             <View style={styles.Button}>
-              <Button title="Grabar Registro" onPress={() => envioData()} />
+              <Button title="Grabar Registro" onPress={() => envioData(fechaServidor,entregado, recibido, observacionFinal)} />
             </View>
           </ScrollView>
         );

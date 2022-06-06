@@ -1,6 +1,5 @@
 import react, { useState } from "react";
-import { Text, View, Button, StyleSheet, TextInput, Alert, Image, useLayoutEffect} from "react-native";
-import theme from "../theme.js";
+import {View, Button, StyleSheet, TextInput, Image} from "react-native";
 import prueba from "../../assets/prueba.jpeg";
 import axios from "axios"
 
