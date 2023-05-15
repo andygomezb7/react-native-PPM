@@ -12,56 +12,74 @@ import MainPrincipal from "./src/screens/ScreenIni.js";
 import activoInicial from "./src/screens/activoInicial.js";
 import activoFinal from "./src/screens/activoFinal.js";
 import ListaActivos from "./src/screens/ListaActivos.js";
-import cerrarSession from "./assets/cerrarSession.png"
+import cerrarSession from "./assets/cerrarSession.png";
 import { View } from "react-native-web";
 
-const Stack = createStackNavigator()
+import Programaciones from "./src/screens/Programaciones/index.js";
+import Programacion from "./src/screens/Programacion/index.js";
 
-const buttonCerrarSession = ({props}) => (
+const Stack = createStackNavigator();
+
+const buttonCerrarSession = ({ props }) => (
   <TouchableOpacity
-    style={{flexDirection: 'row', marginLeft: 10}}
+    style={{ flexDirection: "row", marginLeft: 10 }}
     onPress={() => ClosertLogin(props)}
-  > 
-    <Image source={cerrarSession} style={{width: 20, height: 20, backgroundColor: '#6685A4'}}/>
+  >
+    <Image
+      source={cerrarSession}
+      style={{ width: 20, height: 20, backgroundColor: "#6685A4" }}
+    />
   </TouchableOpacity>
 );
 
 const ClosertLogin = (props) => {
-  props.navigation.navigate('Login');
-}
+  props.navigation.navigate("Login");
+};
 
 function VariasScreens() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Login"      
+        name="Login"
         component={IniSession}
         options={(props) => ({
           headerStyle: {
-            backgroundColor: '#6685A4',
+            backgroundColor: "#6685A4",
           },
-          headerTintColor: '#FFF',
+          headerTintColor: "#FFF",
           headerTitleStyle: {
-            fontWeight: 'bold',
+            fontWeight: "bold",
           },
-          title : "Welcome to PPM",
+          title: "PPM PlaniGO",
         })}
       />
       <Stack.Screen
         name="ScreenPrincipal"
-        component={MainPrincipal}
+        component={Programaciones}
         options={(props) => ({
           headerStyle: {
-            backgroundColor: '#6685A4',
+            backgroundColor: "#6685A4",
           },
-          headerTintColor: '#FFF',
+          headerTintColor: "#FFF",
           headerTitleStyle: {
-            fontWeight: 'bold',
+            fontWeight: "bold",
           },
-          title : "PPM PlaniGO",
-          headerLeft: () => buttonCerrarSession({props}),
+          title: "PPM PlaniGO",
+          headerLeft: () => buttonCerrarSession({ props }),
         })}
       />
+
+      <Stack.Screen
+        name="Programacion"
+        component={Programacion}
+        options={(props) => ({
+          headerStyle: { backgroundColor: "#6685A4" },
+          headerTintColor: "#FFF",
+          headerTitleStyle: { fontWeight: "bold" },
+          title: "Programación",
+        })}
+      />
+
       <Stack.Screen
         name="activoInicial"
         component={activoInicial}
@@ -109,7 +127,7 @@ function VariasScreens() {
 export default function App() {
   return (
     <NavigationContainer>
-      <VariasScreens/>
+      <VariasScreens />
     </NavigationContainer>
   );
 }
