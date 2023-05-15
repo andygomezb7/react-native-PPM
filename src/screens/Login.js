@@ -1,82 +1,100 @@
-import react, {useState} from "react";
-import { View, TextInput, Button, ScrollView, StyleSheet } from "react-native";
-import  axios  from "axios";
+import react, { useEffect, useState } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+import { View, ScrollView, StyleSheet } from "react-native";
+import { Button, Input } from "react-native-elements";
+
+import axios from "axios";
+import API_ENDPOINT from "../services/api";
 
 const IniSession = (props) => {
+  const [state, setstate] = useState({
+    usuario: "",
+    password: "",
+  });
 
-    const [state, setstate] = useState({
-        usuario: "",
-        password: ""
-    })
+  const handleChangeText = (usuario, value) => {
+    setstate({ ...state, [usuario]: value });
+  };
 
-    const handleChangeText = (usuario, value ) => {
-        setstate({...state, [usuario]: value })
+  const ValidLogin = () => {
+    // Comentas aqui sin el navigate para poder entrar
+    if (state.usuario === "") {
+      alert("Ingrese un Usuario");
+    } else if (state.password === "") {
+      alert("Ingrese una Contraseña");
+    } else {
+      axios
+        .get(`${API_ENDPOINT}/ROOT/API/API_login.php`, {
+          params: {
+            request: "login",
+            usu: state.usuario,
+            pass: state.password,
+          },
+        })
+        .then(async function (response) {
+          await AsyncStorage.setItem(
+            "usuario",
+            JSON.stringify(response.data.data)
+          );
+          if (response.data.status === true) {
+            props.navigation.navigate("ScreenPrincipal");
+          } else {
+            alert(response.data.message);
+          }
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     }
+    ////////////////////
+  };
 
-    const ValidLogin = () => {
-      // Comentas aqui sin el navigate para poder entrar
-        if (state.usuario === '' ){
-            alert('Ingrese un Usuario')
-        } 
-        else if (state.password === "") {
-          alert("Ingrese una Contraseña");
-        } else{
-          console.log(state);
-          axios.get('https://edico.planigo.app/ROOT/API/API_login.php',{
-            params: {
-              "request": "login",
-              "usu": state.usuario,
-              "pass": state.password
-            }
-          }).then(function (response) {
-            if (response.data.status === true) {
-              props.navigation.navigate("ScreenPrincipal");
-            }else{
-              alert(response.data.message)
-            }
-          })
-          .catch(function (error) {
-            console.log(error);
-          })
-        } 
-        ////////////////////
-    }
+  useEffect(() => {
+    AsyncStorage.getItem("usuario").then((value) => {
+      if (value !== null) {
+        props.navigation.navigate("ScreenPrincipal", {
+          usuario: JSON.parse(value),
+        });
+      }
+    });
+  }, []);
 
-    return (
-      <ScrollView style={styles.container}>
-        <View style={styles.inputGroup}>
-          <TextInput 
-            placeholder="Usuario"
-            onChangeText={(value) => handleChangeText("usuario", value)}
-          />
-        </View>
-        <View style={styles.inputGroup}>
-          <TextInput
-            placeholder="password"
-            secureTextEntry={true}
-            onChangeText={(value) => handleChangeText("password", value)}
-          />
-        </View>
-        <View>
-          <Button title="Inisia Session" onPress={() => ValidLogin()} />
-        </View>
-      </ScrollView>
-    );
-}
+  return (
+    <ScrollView style={styles.container}>
+      <Input
+        placeholder="Usuario"
+        onChangeText={(value) => handleChangeText("usuario", value)}
+      />
+      <Input
+        placeholder="Contraseña"
+        secureTextEntry={true}
+        onChangeText={(value) => handleChangeText("password", value)}
+      />
+      <View>
+        <Button
+          containerStyle={{ borderRadius: 10 }}
+          title="Inicia Sesión"
+          onPress={() => ValidLogin()}
+        />
+      </View>
+    </ScrollView>
+  );
+};
 
-const styles = StyleSheet.create ({
-    container: {
-        flex:1,
-        padding: 35
-    },
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 35,
+  },
 
-    inputGroup:{
-        flex: 1,
-        padding:0,
-        marginBottom:15,
-        borderBottomWidth:1,
-        borderBottomColor: '#cccccc'
-    }
-})
+  inputGroup: {
+    flex: 1,
+    padding: 0,
+    marginBottom: 15,
+    borderBottomWidth: 1,
+    borderBottomColor: "#cccccc",
+  },
+});
 
-export default IniSession
+export default IniSession;
