@@ -1,0 +1,93 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add react-native-web
+
+PATH: 
+  C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\Yarn\bin\;C:\Users\andy_\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\PuTTY\;C:\Program Files\Amazon\AWSCLI\bin\;C:\xampp\php;C:\ProgramData\ComposerSetup\bin;C:\Program Files\Git\cmd;C:\Program Files\Amazon\AWSCLIV2\;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files\Azure Data Studio\bin;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files (x86)\Java\jdk1.8.0_202;C:\Users\andy_\AppData\Local\Programs\Python\Python39;C:\flutter\bin;C:\Gradle\gradle-5.4.1\bin;C:\Users\andy_\AppData\Local\jdk-11.0.2\bin;C:\Users\andy_\AppData\Local\Programs\Python\Python311\Scripts\;C:\Users\andy_\AppData\Local\Programs\Python\Python311\;C:\Users\andy_\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\andy_\AppData\Local\Programs\Python\Python39\;C:\Users\andy_\AppData\Local\Microsoft\WindowsApps;C:\Users\andy_\AppData\Roaming\npm;C:\Users\andy_\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\andy_\AppData\Local\Yarn\bin;C:\Users\andy_\AppData\Roaming\Composer\vendor\bin;C:\Users\andy_\AppData\Local\GitHubDesktop\bin;C:\Users\andy_\AppData\Local\Programs\Hyper\resources\bin
+
+Yarn version: 
+  1.22.15
+
+Node version: 
+  16.0.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: getaddrinfo ENOTFOUND registry.yarnpkg.com
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (node:dns:69:26)
+
+npm manifest: 
+  {
+    "name": "ppm",
+    "version": "2.0.0",
+    "main": "node_modules/expo/AppEntry.js",
+    "scripts": {
+      "android": "react-native run-android",
+      "ios": "react-native run-ios",
+      "start": "react-native start",
+      "test": "jest",
+      "lint": "eslint ."
+    },
+    "dependencies": {
+      "@react-native-community/datetimepicker": "6.1.2",
+      "@react-native-picker/picker": "2.4.0",
+      "@react-navigation/bottom-tabs": "^6.3.1",
+      "@react-navigation/native": "^6.1.9",
+      "@react-navigation/stack": "^6.0.0",
+      "@rneui/base": "4.0.0-rc.8",
+      "@rneui/themed": "4.0.0-rc.8",
+      "axios": "^0.27.2",
+      "expo": "~45.0.0",
+      "expo-barcode-scanner": "~11.3.0",
+      "expo-image-picker": "~13.1.1",
+      "expo-status-bar": "~1.3.0",
+      "expo-updates": "~0.13.4",
+      "formik": "^2.2.9",
+      "materialize-css": "^1.0.0-rc.2",
+      "moment": "^2.29.3",
+      "react": "17.0.2",
+      "react-dom": "17.0.2",
+      "react-native": "0.68.2",
+      "react-native-elements": "^3.4.2",
+      "react-native-gesture-handler": "~2.2.1",
+      "react-native-modal-datetime-picker": "^13.1.2",
+      "react-native-modal-selector": "^2.1.0",
+      "react-native-reanimated": "~2.8.0",
+      "react-native-safe-area-context": "^3.0.0",
+      "react-native-screens": "~3.11.1",
+      "react-native-signature-canvas": "^4.3.0",
+      "react-native-ultimate-modal-picker": "^1.1.0",
+      "react-native-web": "0.17.7",
+      "reactjs-popup": "^2.0.5"
+    },
+    "devDependencies": {
+      "@babel/core": "^7.12.9",
+      "babel-eslint": "^10.1.0",
+      "eslint-config-standard": "^17.0.0",
+      "eslint-config-standard-jsx": "^11.0.0",
+      "eslint-config-standard-react": "^11.0.1",
+      "eslint-plugin-import": "^2.26.0",
+      "eslint-plugin-node": "^11.1.0",
+      "eslint-plugin-promise": "^6.0.0",
+      "eslint-plugin-react": "^7.29.4"
+    },
+    "jest": {
+      "preset": "react-native"
+    },
+    "private": true,
+    "eslintConfig": {
+      "parser": "babel-eslint",
+      "extends": [
+        "standard",
+        "standard-jsx",
+        "standard-react"
+      ]
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

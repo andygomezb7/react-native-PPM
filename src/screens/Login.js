@@ -17,38 +17,38 @@ const IniSession = (props) => {
     setstate({ ...state, [usuario]: value });
   };
 
-  const ValidLogin = () => {
-    // Comentas aqui sin el navigate para poder entrar
-    if (state.usuario === "") {
-      alert("Ingrese un Usuario");
-    } else if (state.password === "") {
-      alert("Ingrese una Contraseña");
-    } else {
-      axios
-        .get(`${API_ENDPOINT}/ROOT/API/API_login.php`, {
-          params: {
-            request: "login",
-            usu: state.usuario,
-            pass: state.password,
-          },
-        })
-        .then(async function (response) {
-          await AsyncStorage.setItem(
-            "usuario",
-            JSON.stringify(response.data.data)
-          );
-          if (response.data.status === true) {
-            props.navigation.navigate("ScreenPrincipal");
-          } else {
-            alert(response.data.message);
-          }
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    }
-    ////////////////////
-  };
+  // const ValidLogin = () => {
+  //   // Comentas aqui sin el navigate para poder entrar
+  //   if (state.usuario === "") {
+  //     alert("Ingrese un Usuario");
+  //   } else if (state.password === "") {
+  //     alert("Ingrese una Contraseña");
+  //   } else {
+  //     axios
+  //       .get(`${API_ENDPOINT}/ROOT/API/API_login.php`, {
+  //         params: {
+  //           request: "login",
+  //           usu: state.usuario,
+  //           pass: state.password,
+  //         },
+  //       })
+  //       .then(async function (response) {
+  //         await AsyncStorage.setItem(
+  //           "usuario",
+  //           JSON.stringify(response.data.data)
+  //         );
+  //         if (response.data.status === true) {
+  //           props.navigation.navigate("ScreenPrincipal");
+  //         } else {
+  //           alert(response.data.message);
+  //         }
+  //       })
+  //       .catch(function (error) {
+  //         console.log(error);
+  //       });
+  //   }
+  //   ////////////////////
+  // };
 
   useEffect(() => {
     AsyncStorage.getItem("usuario").then((value) => {
@@ -59,6 +59,35 @@ const IniSession = (props) => {
       }
     });
   }, []);
+
+    const ValidLogin = () => {
+      // Comentas aqui sin el navigate para poder entrar
+        if (state.usuario === '' ){
+            alert('Ingrese un Usuario')
+        } 
+        else if (state.password === "") {
+          alert("Ingrese una Contraseña");
+        } else{
+          console.log(state);
+          axios.get('https://tikalfutura.planigo.app/hotel/ROOT/API/API_login.php',{
+            params: {
+              "request": "login",
+              "usu": state.usuario,
+              "pass": state.password
+            }
+          }).then(function (response) {
+            if (response.data.status === true) {
+              props.navigation.navigate("ScreenPrincipal");
+            }else{
+              alert(response.data.message)
+            }
+          })
+          .catch(function (error) {
+            console.log(error);
+          })
+        } 
+        ////////////////////
+    }
 
   return (
     <ScrollView style={styles.container}>
