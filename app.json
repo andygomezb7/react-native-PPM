@@ -2,9 +2,10 @@
   "expo": {
     "name": "PPM",
     "slug": "PPM",
-    "version": "1.0.0",
+    "version": "2.0.0",
+    "sdkVersion": "45.0.0",
     "orientation": "portrait",
-    "icon": "./assets/PPMlogo.jpg",
+    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
@@ -18,7 +19,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.qpwilliam.PPM"
     },
     "android": {
       "adaptiveIcon": {
@@ -29,6 +31,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "f885b793-cd0a-49cb-bd47-4bb6ea99fff4"
+      }
+    },
+    "owner": "andygomezb7"
   }
 }

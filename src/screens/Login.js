@@ -22,7 +22,7 @@ const IniSession = (props) => {
           alert("Ingrese una Contraseña");
         } else{
           console.log(state);
-          axios.get('https://edico.planigo.app/ROOT/API/API_login.php',{
+          axios.get('https://tikalfutura.planigo.app/hotel/ROOT/API/API_login.php',{
             params: {
               "request": "login",
               "usu": state.usuario,

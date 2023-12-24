@@ -18,7 +18,7 @@ const activoInicial = (props) => {
   // aqui traigo el id que filtro el usuario y el que se lee... //////
   react.useEffect(() => {
     axios
-      .get("https://edico.planigo.app/ROOT/API/API_ppm.php", {
+      .get("https://tikalfutura.planigo.app/hotel/ROOT/API/API_ppm.php", {
         params: {
           request: "activo",
           codigo: props.route.params.codigo,
@@ -52,7 +52,7 @@ const activoInicial = (props) => {
       return;
     }
     axios
-      .get("https://edico.planigo.app/ROOT/API/API_ppm.php", {
+      .get("https://tikalfutura.planigo.app/hotel/ROOT/API/API_ppm.php", {
         params: {
           request: "registrar",
           status: 1,
