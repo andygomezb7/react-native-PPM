@@ -29,7 +29,7 @@ export default function App(props) {
       if(data != null){
         codigo = data;
         console.log("nose "+codigo)
-        axios.get('https://tikalfutura.planigo.app/hotel/ROOT/API/API_ppm.php',{
+        axios.get('https://tikalfutura.planigo.app/comercial/ROOT/API/API_ppm.php',{
         params: {
             "request": "activo",
             "codigo": codigo

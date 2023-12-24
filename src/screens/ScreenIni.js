@@ -21,7 +21,7 @@ const MainPrincipal = (props) => {
     if (codigo.codigo === "") {
       alert("Favor Ingrese un Codigo de Activo");
     } else {
-      axios.get('https://tikalfutura.planigo.app/hotel/ROOT/API/API_ppm.php',{
+      axios.get('https://tikalfutura.planigo.app/comercial/ROOT/API/API_ppm.php',{
         params: {
             "request": "activo",
             "codigo": codigo.codigo

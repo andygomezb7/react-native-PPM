@@ -7,7 +7,7 @@ const ListaActivos = (props) => {
     const [data, setData] = useState([])
 
     react.useEffect(() => {
-        axios.get('https://tikalfutura.planigo.app/hotel/ROOT/API/API_ppm.php',{
+        axios.get('https://tikalfutura.planigo.app/comercial/ROOT/API/API_ppm.php',{
         params: {
             "request": "activos",
             "codigo": ""

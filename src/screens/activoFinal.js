@@ -19,7 +19,7 @@ const activoFinal = (props) => {
 
     // aqui traigo el id que filtro el usuario y el que se lee... //////
   react.useEffect(() => {
-    axios.get('https://tikalfutura.planigo.app/hotel/ROOT/API/API_ppm.php',{
+    axios.get('https://tikalfutura.planigo.app/comercial/ROOT/API/API_ppm.php',{
     params: {
         "request": "activo",
         "codigo": props.route.params.codigo
@@ -50,7 +50,7 @@ const activoFinal = (props) => {
     }
     ////////////////// aqui vienen todos los datos que ya envia recogidos del formulario /////////////////////  
      console.log(act)
-    axios.get('https://tikalfutura.planigo.app/hotel/ROOT/API/API_ppm.php',{
+    axios.get('https://tikalfutura.planigo.app/comercial/ROOT/API/API_ppm.php',{
       params: {
         "request": "registrar",
         "status": 2,
